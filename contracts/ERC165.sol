@@ -3,11 +3,11 @@ pragma solidity >=0.8.4;
 import "./interfaces/IERC165.sol";
 
 contract ERC165 is IERC165 {
-	bytes4 constant INVALID_ID = 0xffffffff;
-	bytes4 constant ERC165_ID = 0x01ffc9a7;
+	bytes4 internal constant INVALID_ID = 0xffffffff;
+	bytes4 internal constant ERC165_ID = 0x01ffc9a7;
 
 	/// @dev You must not set element 0xffffffff to true
-	mapping(bytes4 => bool) internal _supportedInterfaces;
+	mapping(bytes4 => bool) private _supportedInterfaces;
 
 	function supportsInterface(bytes4 _interfaceID) external view returns (bool status) {
 		if (_interfaceID != INVALID_ID) {
