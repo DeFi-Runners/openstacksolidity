@@ -3,32 +3,32 @@ pragma solidity >=0.8.4;
 library AnyToBooleanLib {
     // int8 to string
     function toBoolean(int8 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // int16 to string
     function toBoolean(int16 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // int32 to string
     function toBoolean(int32 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // int64 to string
     function toBoolean(int64 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // int128 to string
     function toBoolean(int128 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // int256 to string
     function toBoolean(int256 _value) public pure returns (bool result) {
-        result = _value != 0;
+        result = _value > 0;
     }
 
     // uint8 to string
