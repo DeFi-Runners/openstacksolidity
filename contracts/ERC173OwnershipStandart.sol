@@ -6,7 +6,11 @@ import "./interfaces/IERC165.sol";
 contract ERC173OwnershipStandart is IERC173, IERC165 {
     address private _owner;
 
-    function owner() external view returns (address account) {
+    constructor() {
+        _setOwner(msg.sender);
+    }
+
+    function owner() public view returns (address account) {
         account = _owner;
     }
 
