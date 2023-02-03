@@ -1,13 +1,16 @@
 pragma solidity >=0.8.4;
 
 import "./interfaces/IERC173.sol";
-import "./interfaces/IERC165.sol";
+import "./ERC165.sol";
 
-contract ERC173OwnershipStandart is IERC173, IERC165 {
+contract ERC173OwnershipStandart is IERC173, ERC165 {
+    bytes4 internal constant ERC173_ID = 0x7f5828d0;
+
     address private _owner;
 
     constructor() {
         _setOwner(msg.sender);
+        _setSupportedInterface(ERC173_ID);
     }
 
     function owner() public view returns (address account) {
@@ -18,8 +21,8 @@ contract ERC173OwnershipStandart is IERC173, IERC165 {
         _setOwner(_newOwner);
     }
 
-    function supportsInterface(bytes4 interfaceID) external view returns (bool status) {
-        status = interfaceID == 0x7f5828d0;
+    function supportsInterface(bytes4 interfaceID) public view override returns (bool status) {
+        status = super.supportsInterface(interfaceID);
     }
 
     function _setOwner(address _account) internal {
