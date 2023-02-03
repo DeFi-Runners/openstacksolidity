@@ -9,7 +9,7 @@ contract ERC165 is IERC165 {
 	/// @dev You must not set element 0xffffffff to true
 	mapping(bytes4 => bool) private _supportedInterfaces;
 
-	function supportsInterface(bytes4 _interfaceID) external view returns (bool status) {
+	function supportsInterface(bytes4 _interfaceID) public view virtual returns (bool status) {
 		if (_interfaceID != INVALID_ID) {
 			status = _interfaceID == ERC165_ID || _supportedInterfaces[_interfaceID]; // ERC165.supportsInterface.selector
 		}
